@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   apiKey: '150fbbe1acaad28eb658bb6513588993',
-  apiUrl: 'http://api.openweathermap.org/',
+  apiUrl: '//api.openweathermap.org/',
   lonLeft: 0,
   latBottom: -50,
   lonRight: 180,

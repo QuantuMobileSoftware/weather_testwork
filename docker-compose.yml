@@ -1,0 +1,15 @@
+angular:
+  image: node:10.3.0
+  environment:
+    VIRTUAL_HOST: weather.quantumobile.co
+    VIRTUAL_PORT: 4200
+    LETSENCRYPT_HOST: weather.quantumobile.co
+    LETSENCRYPT_EMAIL: a.dolgarev@quantumobile.com
+  expose:
+    - 4200
+  ports:
+    - "4200:4200"
+  volumes:
+    - ./:/app
+  working_dir: /app
+  command: /bin/bash -c "npm install && exec npm start"
