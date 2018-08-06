@@ -25,20 +25,20 @@ export class ServiceRequester {
     let message = response.message;
     let errorCode = response.status;
 
-    // if (response.error) {
-    //   try {
-    //     if (response.error.hasOwnProperty('detail')) {
-    //       message = response.error.detail;
-    //     }
-    //
-    //     if (response.error.hasOwnProperty('status')) {
-    //       errorCode = response.error.status;
-    //     }
-    //
-    //   } catch (err) {
-    //     message = 'Service unavailable.';
-    //   }
-    // }
+    if (response.error) {
+      try {
+        if (response.error.hasOwnProperty('message')) {
+          message = response.error.message;
+        }
+
+        if (response.error.hasOwnProperty('cod')) {
+          errorCode = response.error.cod;
+        }
+
+      } catch (err) {
+        message = 'Service unavailable.';
+      }
+    }
 
     return Promise.reject({
       message: message,
